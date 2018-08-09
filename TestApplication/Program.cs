@@ -19,6 +19,7 @@ namespace TestApplication
             // Instantiate a new client, all that's needed is an API key, but it's possible to 
             // also specify if SSL should be used, and if another server address should be used.
             TMDbClient client = new TMDbClient("c6b31d1cdad6a56a23f0c913e2482a31");
+//            client.DefaultLanguage = "fr";
 
             // We need the config from TMDb in case we want to get stuff like images
             // The config needs to be fetched for each new client we create, but we can cache it to a file (as in this example).
@@ -119,7 +120,7 @@ namespace TestApplication
 
         private static async Task FetchMovieExample(TMDbClient client)
         {
-            string query = "Thor";
+            string query = "10x10";
 
             // This example shows the fetching of a movie.
             // Say the user searches for "Thor" in order to find "Thor: The Dark World" or "Thor"
