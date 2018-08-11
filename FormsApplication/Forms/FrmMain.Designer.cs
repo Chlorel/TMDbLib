@@ -41,6 +41,7 @@
             this.BtnOk = new System.Windows.Forms.Button();
             this.CmbLanguage = new System.Windows.Forms.ComboBox();
             this.LblLanguage = new System.Windows.Forms.Label();
+            this.BtnLangue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblAPIKEY
@@ -61,7 +62,7 @@
             // 
             // BtnAPIKEY
             // 
-            this.BtnAPIKEY.Location = new System.Drawing.Point(378, 34);
+            this.BtnAPIKEY.Location = new System.Drawing.Point(378, 8);
             this.BtnAPIKEY.Name = "BtnAPIKEY";
             this.BtnAPIKEY.Size = new System.Drawing.Size(75, 20);
             this.BtnAPIKEY.TabIndex = 2;
@@ -73,24 +74,25 @@
             // 
             this.LblSearch.Location = new System.Drawing.Point(12, 62);
             this.LblSearch.Name = "LblSearch";
-            this.LblSearch.Size = new System.Drawing.Size(70, 20);
+            this.LblSearch.Size = new System.Drawing.Size(70, 33);
             this.LblSearch.TabIndex = 3;
             this.LblSearch.Text = "Search";
             this.LblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TxtSearch
             // 
+            this.TxtSearch.Font = new System.Drawing.Font("Calibri", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtSearch.Location = new System.Drawing.Point(87, 62);
             this.TxtSearch.Name = "TxtSearch";
-            this.TxtSearch.Size = new System.Drawing.Size(285, 20);
+            this.TxtSearch.Size = new System.Drawing.Size(285, 33);
             this.TxtSearch.TabIndex = 4;
             // 
             // BtnSearch
             // 
             this.BtnSearch.Enabled = false;
-            this.BtnSearch.Location = new System.Drawing.Point(378, 61);
+            this.BtnSearch.Location = new System.Drawing.Point(378, 62);
             this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(75, 20);
+            this.BtnSearch.Size = new System.Drawing.Size(75, 33);
             this.BtnSearch.TabIndex = 5;
             this.BtnSearch.Text = "Search";
             this.BtnSearch.UseVisualStyleBackColor = true;
@@ -103,7 +105,7 @@
             this.LvID,
             this.LvTitle,
             this.LvDate});
-            this.LvResults.Location = new System.Drawing.Point(87, 88);
+            this.LvResults.Location = new System.Drawing.Point(87, 101);
             this.LvResults.Name = "LvResults";
             this.LvResults.Size = new System.Drawing.Size(285, 142);
             this.LvResults.TabIndex = 6;
@@ -122,12 +124,13 @@
             // 
             // LvDate
             // 
-            this.LvDate.Text = "Date";
+            this.LvDate.Text = "Year";
+            this.LvDate.Width = 58;
             // 
             // BtnOk
             // 
             this.BtnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOk.Location = new System.Drawing.Point(378, 235);
+            this.BtnOk.Location = new System.Drawing.Point(378, 224);
             this.BtnOk.Name = "BtnOk";
             this.BtnOk.Size = new System.Drawing.Size(75, 20);
             this.BtnOk.TabIndex = 5;
@@ -160,17 +163,29 @@
             this.LblLanguage.Text = "Language";
             this.LblLanguage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // BtnLangue
+            // 
+            this.BtnLangue.Enabled = false;
+            this.BtnLangue.Location = new System.Drawing.Point(378, 33);
+            this.BtnLangue.Name = "BtnLangue";
+            this.BtnLangue.Size = new System.Drawing.Size(75, 21);
+            this.BtnLangue.TabIndex = 2;
+            this.BtnLangue.Text = "Select";
+            this.BtnLangue.UseVisualStyleBackColor = true;
+            this.BtnLangue.Click += new System.EventHandler(this.BtnLangue_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 267);
+            this.ClientSize = new System.Drawing.Size(463, 256);
             this.Controls.Add(this.CmbLanguage);
             this.Controls.Add(this.LvResults);
             this.Controls.Add(this.BtnOk);
             this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.TxtSearch);
             this.Controls.Add(this.LblSearch);
+            this.Controls.Add(this.BtnLangue);
             this.Controls.Add(this.BtnAPIKEY);
             this.Controls.Add(this.TxtAPIKEY);
             this.Controls.Add(this.LblLanguage);
@@ -178,6 +193,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TMDbLib Test";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,6 +214,7 @@
         private System.Windows.Forms.Button BtnOk;
         private System.Windows.Forms.ComboBox CmbLanguage;
         private System.Windows.Forms.Label LblLanguage;
+        private System.Windows.Forms.Button BtnLangue;
     }
 }
 

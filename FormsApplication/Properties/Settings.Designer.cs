@@ -22,5 +22,29 @@ namespace TMDBForms.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string APIKEY {
+            get {
+                return ((string)(this["APIKEY"]));
+            }
+            set {
+                this["APIKEY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LANGUE {
+            get {
+                return ((string)(this["LANGUE"]));
+            }
+            set {
+                this["LANGUE"] = value;
+            }
+        }
     }
 }

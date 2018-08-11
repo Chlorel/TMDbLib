@@ -19,12 +19,12 @@ namespace TMDBForms.Forms
     public partial class FrmMain : Form
     {
         TMDbClient  client;
+        string      LANGUE;
         int         MovieID;
 
         public FrmMain()
         {
             InitializeComponent();
-            BtnAPIKEY.Enabled = false;
         }
 
         private async Task FetchConfig(TMDbClient client)
@@ -76,11 +76,32 @@ namespace TMDBForms.Forms
 
         private async void BtnAPIKEY_Click(object sender, EventArgs e)
         {
-            client = new TMDbClient(TxtAPIKEY.Text);
-            client.DefaultLanguage = CmbLanguage.Text;
-            await FetchConfig(client);
+            try
+            {
+                client = new TMDbClient(TxtAPIKEY.Text);
 
-            BtnSearch.Enabled = true;
+                
+                List<TMDbLib.Objects.Languages.Language> Lng = await client.GetLanguagesAsync();
+
+                foreach ( var l in Lng)
+                {
+                    CmbLanguage.Items.Add(l.Iso_639_1);
+                    if (l.Iso_639_1 == LANGUE)
+                    {
+                        CmbLanguage.Text = LANGUE;
+                    }
+                }
+
+                TMDBForms.Properties.Settings.Default.APIKEY = TxtAPIKEY.Text;
+                TMDBForms.Properties.Settings.Default.Save();
+
+                await FetchConfig(client);
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+
+            }
         }
 
         private async void BtnSearch_Click(object sender, EventArgs e)
@@ -105,7 +126,24 @@ namespace TMDBForms.Forms
 
         private void CmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BtnAPIKEY.Enabled = true;
+            LANGUE = CmbLanguage.Text;
+
+            TMDBForms.Properties.Settings.Default.LANGUE = LANGUE;
+            TMDBForms.Properties.Settings.Default.Save();
+
+            BtnLangue.Enabled = true;
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            LANGUE         = TMDBForms.Properties.Settings.Default.LANGUE;
+            TxtAPIKEY.Text = TMDBForms.Properties.Settings.Default.APIKEY;
+        }
+
+        private void BtnLangue_Click(object sender, EventArgs e)
+        {
+            client.DefaultLanguage = LANGUE;
+            BtnSearch.Enabled = true;
         }
     }
 }

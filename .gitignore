@@ -1,5 +1,6 @@
 # Temporary Folders
 bin/
+installer/
 obj/
 packages/
 
