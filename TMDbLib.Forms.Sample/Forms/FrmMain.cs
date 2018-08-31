@@ -80,7 +80,6 @@ namespace TMDBForms.Forms
             {
                 client = new TMDbClient(TxtAPIKEY.Text);
 
-                
                 List<TMDbLib.Objects.Languages.Language> Lng = await client.GetLanguagesAsync();
 
                 foreach ( var l in Lng)

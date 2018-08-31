@@ -75,7 +75,7 @@ namespace TMDBForms.Forms
         private async void FrmResultat_Load(object sender, EventArgs e)
         {
             string MyLanguage = client.DefaultLanguage;
-            client.DefaultLanguage = "en";
+            client.DefaultLanguage = "";
             Movie movieEN = await client.GetMovieAsync(MovieID, MovieMethods.Images);
             client.DefaultLanguage = MyLanguage;
             Movie movie = await client.GetMovieAsync(MovieID, MovieMethods.AlternativeTitles | MovieMethods.Releases | MovieMethods.Credits | MovieMethods.Images);
